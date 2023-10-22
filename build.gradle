@@ -16,12 +16,16 @@ ext {
     seleniumVersion='4.13.0'
     junitVersion='5.10.0'
     assertjVersion='3.24.2'
+    fakerVersion='1.0.2'
+    icu4jVersion='73.2'
 }
 
 dependencies {
     implementation "org.apache.logging.log4j:log4j-core:${log4jcoreVersion}"
     implementation "io.github.bonigarcia:webdrivermanager:${webdrivermanagerVersion}"
     implementation "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
+    implementation "com.github.javafaker:javafaker:${fakerVersion}"
+    implementation "com.ibm.icu:icu4j:${icu4jVersion}"
     testImplementation "org.apache.logging.log4j:log4j-slf4j2-impl:${log4jVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
     testImplementation "org.assertj:assertj-core:${assertjVersion}"
