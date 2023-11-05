@@ -35,6 +35,10 @@ public class WebDriverFactory {
                 IBrowserOptions options = new ChromeDriverOptions();
                 return new ChromeDriver((ChromeOptions) options.getOptions());
             }
+            case FIREFOX: {
+                WebDriverManager.firefoxdriver().setup();
+                return new FirefoxDriver();
+            }
             default: {
                 return null;
             }
