@@ -13,7 +13,7 @@ ext {
     log4jcoreVersion='2.20.0'
     log4jVersion='2.20.0'
     webdrivermanagerVersion='5.5.3'
-    seleniumVersion='4.13.0'
+    seleniumVersion='4.12.1'
     junitVersion='5.10.0'
     assertjVersion='3.24.2'
     fakerVersion='1.0.2'

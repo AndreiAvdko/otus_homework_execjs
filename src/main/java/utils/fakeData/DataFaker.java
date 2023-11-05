@@ -40,4 +40,8 @@ public class DataFaker {
             return result;
         } else return result + 1;
     }
+
+    public static String getRandomCompanyName() {
+        return faker.company().name();
+    }
 }
