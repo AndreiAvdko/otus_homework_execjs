@@ -15,6 +15,7 @@ public abstract class AbsBasePage extends AbsPageObject {
     }
 
     public AbsBasePage open() {
+        driver.manage().window().maximize();
         driver.get(BASE_URL + path);
         return this;
     }

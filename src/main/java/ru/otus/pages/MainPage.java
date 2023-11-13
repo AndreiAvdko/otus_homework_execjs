@@ -18,6 +18,7 @@ public class MainPage extends AbsBasePage {
 
     @Override
     public MainPage open() {
+        driver.manage().window().maximize();
         driver.get(BASE_URL + path);
         return this;
     }
@@ -34,6 +35,9 @@ public class MainPage extends AbsBasePage {
         $x(passwordInputActivateLocator).click();
         $(passwordInputSelector).sendKeys(System.getProperty("password", defaultPassword));
         $x(authorizeButtonLocator).click();
+        if (waiters.waitElementVisible($x(authorizeButtonLocator))) {
+            $x(authorizeButtonLocator).click();
+        }
         return this;
     }
 

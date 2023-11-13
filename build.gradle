@@ -26,6 +26,7 @@ dependencies {
     implementation "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
     implementation "com.github.javafaker:javafaker:${fakerVersion}"
     implementation "com.ibm.icu:icu4j:${icu4jVersion}"
+    implementation "org.assertj:assertj-core:${assertjVersion}"
     testImplementation "org.apache.logging.log4j:log4j-slf4j2-impl:${log4jVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
     testImplementation "org.assertj:assertj-core:${assertjVersion}"
@@ -35,7 +36,6 @@ test {
     useJUnitPlatform()
 
     println "STARTING TESTS"
-
     systemProperties = System.properties
 }
 

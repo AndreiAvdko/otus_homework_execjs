@@ -1,19 +1,15 @@
 package ru.otus.pages;
 
-import data.SocialNetworkType;
-import data.LanguageLevel;
-import data.UserGender;
-import data.WorkFormat;
-import org.openqa.selenium.Cookie;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import data.*;
+import org.asynchttpclient.util.Assertions;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.fakeData.DataFaker;
+import static org.assertj.core.api.Assertions.*;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+
 
 public class PersonalAccountProfilePage extends AbsBasePage {
     String nameInputSelector = "input[name='fname']";
@@ -24,10 +20,10 @@ public class PersonalAccountProfilePage extends AbsBasePage {
     String birthDateSelector = "input[name='date_of_birth']";
     String countryInputLocator = "//label[./input[@name='country']]/div";
     String countryBlockSelector = "div[class*='select-scroll_country']";
-    String countryListSelector = "div[class*='select-scroll_country'] > button";
-    String cityInputLocator = "//label[./input[@name='city']]/div";
+    String countryButtonTemplateLocator = "//div[contains(@class, 'select-scroll_country')]/button[contains(text(), '%s')]";
+    String cityInputLocator = "//label[./input[@name='city']]/div"; // //label[./input[@name='city']]/div
     String cityBlockSelector = "div[class*='select-scroll_city']";
-    String cityListSelector = "div[class*='select-scroll_city'] > button";
+    String cityButtonTemlateLocator = "//div[contains(@class, 'select-scroll_city')]/button[contains(text(), '%s')]";
     String languageLevelInputLocator = "//label[./input[@name='english_level']]";
     String languageLevelListLocator = "//label[./input[@name='english_level']]/following-sibling::div/div/button";
     String readyToRelocateRadiButTemplateLocator = "//label[./input[@name='ready_to_relocate' and @value='%s']]";
@@ -78,19 +74,23 @@ public class PersonalAccountProfilePage extends AbsBasePage {
         return this;
     }
 
-    public PersonalAccountProfilePage fillCountry() {
+    public PersonalAccountProfilePage fillCountry(Countries country) {
         $x(countryInputLocator).click();
-        List<WebElement> countryElementList = $$(countryListSelector);
-        countryElementList.get(DataFaker.getRandomInDuration(countryElementList.size())).click();
+        $x(String.format(countryButtonTemplateLocator, country.getName())).click();
         waiters.waitForCondition(ExpectedConditions.invisibilityOf($(countryBlockSelector)));
         return this;
     }
 
-    public PersonalAccountProfilePage fillCity() {
-        $x(cityInputLocator).click();
-        List<WebElement> cityElementList = $$(cityListSelector);
-        waiters.waitForCondition(ExpectedConditions.visibilityOf($(cityBlockSelector)));
-        cityElementList.get(DataFaker.getRandomInDuration(cityElementList.size()-1)).click();
+    public PersonalAccountProfilePage fillCity(RussianCities city) {
+        WebElement cityListOpenButton = $x(cityInputLocator);
+        waiters.waitForCondition(ExpectedConditions.elementToBeClickable(cityListOpenButton));
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            System.out.printf(e.toString());
+        }
+        $x("//input[@name= 'city']/following::div[1]").click();
+        $x(String.format(cityButtonTemlateLocator, city.getName())).click();
         waiters.waitForCondition(ExpectedConditions.invisibilityOf($(cityBlockSelector)));
         return this;
     }
@@ -167,15 +167,15 @@ public class PersonalAccountProfilePage extends AbsBasePage {
         return this;
     }
 
-    public PersonalAccountProfilePage fillCompanyAndPosition() {
+    public PersonalAccountProfilePage fillCompanyAndPosition(String company, String position) {
         WebElement companyNameInput = $(companyNameInputSelector);
         companyNameInput.click();
         companyNameInput.clear();
-        companyNameInput.sendKeys(DataFaker.getRandomCompanyName());
+        companyNameInput.sendKeys(company);
         WebElement positionNameInput = $(positionNameInputSelector);
         positionNameInput.click();
         positionNameInput.clear();
-        positionNameInput.sendKeys(DataFaker.getRandomCompanyName());
+        positionNameInput.sendKeys(position);
         return this;
     }
 
@@ -184,4 +184,64 @@ public class PersonalAccountProfilePage extends AbsBasePage {
         return this;
     }
 
+
+    public PersonalAccountProfilePage checkCorrectFillingNameAndLatinName(String name, String latinName) {
+        assertThat($(nameInputSelector).getAttribute("value")).isEqualTo(name);
+        assertThat($(nameLatinInputSelector).getAttribute("value")).isEqualTo(latinName);
+        return this;
+    }
+
+    public PersonalAccountProfilePage checkCorrectFillingSurnameAndLatinSurname(String surname, String latinSurname) {
+        assertThat($(surnameInputSelector).getAttribute("value")).isEqualTo(surname);
+        assertThat($(surnameLatinInputSelector).getAttribute("value")).isEqualTo(latinSurname);
+        return this;
+    }
+
+    public PersonalAccountProfilePage checkCorrectFillingBlogName(String blogName) {
+        assertThat($(nameInBlogSelector).getAttribute("value")).isEqualTo(blogName);
+        return this;
+    }
+
+    public PersonalAccountProfilePage checkCorrectFillingBirthDay(String birthDay) {
+        assertThat($(birthDateSelector).getAttribute("value")).isEqualTo(birthDay);
+        return this;
+    }
+
+    public PersonalAccountProfilePage checkCorrectFillingCountryAndCity(String country, String city) {
+        assertThat($x(String.format(countryButtonTemplateLocator, country)).getAttribute("title")).isEqualTo(country);
+        assertThat($x(String.format(cityButtonTemlateLocator, city)).getAttribute("title")).isEqualTo(city);
+        return this;
+    }
+
+    public PersonalAccountProfilePage checkCorrectFillingEnglishLevel(String engLevel) {
+        assertThat($x(languageLevelInputLocator).getText()).isEqualTo(engLevel);
+        return this;
+    }
+
+    public PersonalAccountProfilePage checkCorrectFillingReadyToRelocate(boolean ready) {
+        assertThat($x("//label[./input[@name='ready_to_relocate']]").isSelected()).isEqualTo(ready);
+        return this;
+    }
+    public PersonalAccountProfilePage checkCorrectFillingWorkFormat(WorkFormat ... formats) {
+        for (WorkFormat format : formats) {
+            switch (format) {
+                case FULL_TIME: {
+                    assertThat(($(String.format(workFormatCheckboxTemplateSelector, "Полный день")).isSelected())).isTrue();
+                }
+                case FLEXIBLE_WORK: {
+                    assertThat(($(String.format(workFormatCheckboxTemplateSelector, "Гибкий график")).isSelected())).isTrue();
+                }
+                case REMOTE_WORK: {
+                    assertThat(($(String.format(workFormatCheckboxTemplateSelector, "Удаленно")).isSelected())).isTrue();
+                }
+            }
+        }
+        return this;
+    }
+
+    public PersonalAccountProfilePage checkCorrectFillingCompanyAndPosition(String company, String position) {
+        assertThat($(companyNameInputSelector).getAttribute("value")).isEqualTo(company);
+        assertThat($(positionNameInputSelector).getAttribute("value")).isEqualTo(position);
+        return this;
+    }
 }

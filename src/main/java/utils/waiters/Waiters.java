@@ -28,4 +28,10 @@ public class Waiters {
     public boolean waitElementVisible(WebElement element) {
         return waitForCondition(ExpectedConditions.visibilityOf(element));
     }
+
+    public void waitAndClick(WebElement visibleElement, WebElement clickElement) {
+        while (visibleElement.isDisplayed()) {
+            clickElement.click();
+        }
+    }
 }

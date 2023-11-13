@@ -1,8 +1,6 @@
 package ru.otus;
 
-import data.LanguageLevel;
-import data.SocialNetworkType;
-import data.UserGender;
+import data.*;
 import factory.WebDriverFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,6 +28,10 @@ public class OtusTest {
     private final String LATIN_SNAME = DataFaker.RuIntoLatin(SURNAME);
     private final String BLOG_NAME = DataFaker.RuIntoLatin(DataFaker.fakeRUFirstName());
     private final String BIRTHDATE = DataFaker.generateBirthDate();
+    private final String COMPANY = DataFaker.getRandomCompanyName();
+    private final String POSITION = DataFaker.getRandomCompanyName();
+
+    private final
 
     Map<SocialNetworkType, String> userContacts = new HashMap() {
         {
@@ -43,12 +45,9 @@ public class OtusTest {
     @BeforeEach
     public void initDriver() {
         driver = new WebDriverFactory().newDriver();
-        //driver = new ChromeDriver();
     }
-    //TODO Добавить открытие браузера на весь экран
-    // TODO Можно ли перезайти подменив куку?
     @Test
-    public void checkOwnDataInOtusAccount() {
+    public void checkOwnDataInOtusAccount() throws InterruptedException {
         new MainPage(driver).open()
                 .logInToTheSite()
                 .goToPersonalAccount()
@@ -56,27 +55,35 @@ public class OtusTest {
                 .fillSurnameWithLatinName(SURNAME, LATIN_SNAME)
                 .fillBlogName(BLOG_NAME)
                 .fillBirthDate(BIRTHDATE)
-                .fillCountry()
-                .fillCity()
+                .fillCountry(Countries.RUSSIA)
+                .fillCity(RussianCities.MOSCOW)
                 .fillEnglishLanguageLevel(LanguageLevel.ADVANCED)
                 .fillReadyToRelocation(false)
                 .fillWorkFormat(FLEXIBLE_WORK, FULL_TIME, REMOTE_WORK)
                 .addCommunicationContact(userContacts)
                 .fillGender(UserGender.MALE)
-                .fillCompanyAndPosition()
+                .fillCompanyAndPosition(COMPANY, POSITION)
                 .saveAndReturnAfterTime()
                 .close();
         driver = new WebDriverFactory().newDriver();
         new MainPage(driver)
                 .open()
                 .logInToTheSite()
-                .goToPersonalAccount();
-
+                .goToPersonalAccount()
+                .checkCorrectFillingNameAndLatinName(FIRST_NAME, LATIN_FNAME)
+                .checkCorrectFillingSurnameAndLatinSurname(SURNAME, LATIN_SNAME)
+                .checkCorrectFillingBlogName(BLOG_NAME)
+                .checkCorrectFillingBirthDay(BIRTHDATE)
+                .checkCorrectFillingCountryAndCity(Countries.RUSSIA.getName(), RussianCities.MOSCOW.getName())
+                .checkCorrectFillingEnglishLevel(LanguageLevel.ADVANCED.getName())
+                .checkCorrectFillingReadyToRelocate(false)
+                .checkCorrectFillingWorkFormat(FLEXIBLE_WORK, FULL_TIME, REMOTE_WORK)
+                .checkCorrectFillingCompanyAndPosition(COMPANY, POSITION);
     }
     @AfterEach
     public void closeBrowser() {
         if (driver != null) {
-            driver.quit();
+            //driver.quit();
         }
     }
 }
