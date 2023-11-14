@@ -42,11 +42,11 @@ public class OtusTest {
     @Test
     public void checkOwnDataInOtusAccount() {
         MainPage mainPage = new MainPage(driver);
-        if (System.getProperty("authWithCockie", "y").equals("y")) {
-            mainPage.openWithAuthorizedUserWithCoockies();
-        } else {
+        if (System.getProperty("authWithCockie", "n").equals("n")) {
             mainPage.open()
                     .logInToTheSite();
+        } else {
+            mainPage.openWithAuthorizedUserWithCoockies();
         }
         mainPage
                 .goToPersonalAccount()
@@ -66,11 +66,11 @@ public class OtusTest {
                 .close();
         driver = new WebDriverFactory().newDriver();
         mainPage = new MainPage(driver);
-        if (System.getProperty("authWithCockie", "y").equals("y")) {
-            mainPage.openWithAuthorizedUserWithCoockies();
-        } else {
+        if (System.getProperty("authWithCockie", "n").equals("n")) {
             mainPage.open()
                     .logInToTheSite();
+        } else {
+            mainPage.openWithAuthorizedUserWithCoockies();
         }
         mainPage.openPersonalAccountWithAuthorizedUserWithCoockies()
                 .open()
@@ -87,7 +87,7 @@ public class OtusTest {
     @AfterEach
     public void closeBrowser() {
         if (driver != null) {
-            //driver.quit();
+            driver.quit();
         }
     }
 }

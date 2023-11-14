@@ -34,6 +34,4 @@ public abstract class AbsPageObject {
         return driver.findElements(By.xpath(xPathLocator));
     }
 
-
-
 }
