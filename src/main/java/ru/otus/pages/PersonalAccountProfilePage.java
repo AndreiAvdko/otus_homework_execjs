@@ -12,37 +12,42 @@ import java.util.Map;
 
 
 public class PersonalAccountProfilePage extends AbsBasePage {
-    String nameInputSelector = "input[name='fname']";
-    String nameLatinInputSelector = "input[name='fname_latin']";
-    String surnameInputSelector = "input[name='lname']";
-    String surnameLatinInputSelector = "input[name='lname_latin']";
-    String nameInBlogSelector = "input[id='id_blog_name']";
-    String birthDateSelector = "input[name='date_of_birth']";
-    String countryInputLocator = "//label[./input[@name='country']]/div";
-    String countryBlockSelector = "div[class*='select-scroll_country']";
-    String countryButtonTemplateLocator = "//div[contains(@class, 'select-scroll_country')]/button[contains(text(), '%s')]";
-    String cityInputLocator = "//label[./input[@name='city']]/div"; // //label[./input[@name='city']]/div
-    String cityBlockSelector = "div[class*='select-scroll_city']";
-    String cityButtonTemlateLocator = "//div[contains(@class, 'select-scroll_city')]/button[contains(text(), '%s')]";
-    String languageLevelInputLocator = "//label[./input[@name='english_level']]";
-    String languageLevelListLocator = "//label[./input[@name='english_level']]/following-sibling::div/div/button";
-    String readyToRelocateRadiButTemplateLocator = "//label[./input[@name='ready_to_relocate' and @value='%s']]";
-    String workFormatCheckboxTemplateSelector = "input[title='%s']";
-    String workFormatTemplateLocator = "//label[./span[contains(text(), '%s')]]";
-    String maleGenderLocator = "//select[@name='gender']/option[text()='Мужской']";
-    String femaleGenderLocator = "//select[@name='gender']/option[text()='Женский']";
-    String noChooseGenderLocator = "//select[@name='gender']/option[text()='Не указано']";
-    String companyNameInputSelector = "input[name='company']";
-    String positionNameInputSelector = "input[name='work']";
-    String communicateMethodInputTemplateSelector =  "input[name='contact-%s-value']";
-    String communicateTypeMessangerButtonTemlateLocator = "//div[./input[@name='contact-%s-value']]/div/div/div/button";
-    String openMessengerListButtonTemplateLocator = "//div[./input[@name='contact-%s-value']]/div";
-    String addCommunicateMethodButtonLocator = "//div[./p[text()='Контактная информация']]/descendant::button[text()='Добавить']";
-    String savePageChangesButtonSelector = "button[title='Сохранить и заполнить позже']";
+    private String nameInputSelector = "input[name='fname']";
+    private String nameLatinInputSelector = "input[name='fname_latin']";
+    private String surnameInputSelector = "input[name='lname']";
+    private String surnameLatinInputSelector = "input[name='lname_latin']";
+    private String nameInBlogSelector = "input[id='id_blog_name']";
+    private String birthDateSelector = "input[name='date_of_birth']";
+    private String countryInputLocator = "//label[./input[@name='country']]/div";
+    private String countryBlockSelector = "div[class*='select-scroll_country']";
+    private String countryButtonTemplateLocator = "//div[contains(@class, 'select-scroll_country')]/button[contains(text(), '%s')]";
+    private String cityInputLocator = "//label[./input[@name='city']]/div"; // //label[./input[@name='city']]/div
+    private String cityBlockSelector = "div[class*='select-scroll_city']";
+    private String cityButtonTemlateLocator = "//div[contains(@class, 'select-scroll_city')]/button[contains(text(), '%s')]";
+    private String languageLevelInputLocator = "//label[./input[@name='english_level']]";
+    private String languageLevelListLocator = "//label[./input[@name='english_level']]/following-sibling::div/div/button";
+    private String readyToRelocateRadiButTemplateLocator = "//label[./input[@name='ready_to_relocate' and @value='%s']]";
+    private String workFormatCheckboxTemplateSelector = "input[title='%s']";
+    private String workFormatTemplateLocator = "//label[./span[contains(text(), '%s')]]";
+    private String maleGenderLocator = "//select[@name='gender']/option[text()='Мужской']";
+    private String femaleGenderLocator = "//select[@name='gender']/option[text()='Женский']";
+    private String noChooseGenderLocator = "//select[@name='gender']/option[text()='Не указано']";
+    private String companyNameInputSelector = "input[name='company']";
+    private String positionNameInputSelector = "input[name='work']";
+    private String communicateMethodInputTemplateSelector =  "input[name='contact-%s-value']";
+    private String communicateTypeMessangerButtonTemlateLocator = "//div[./input[@name='contact-%s-value']]/div/div/div/button";
+    private String openMessengerListButtonTemplateLocator = "//div[./input[@name='contact-%s-value']]/div";
+    private String addCommunicateMethodButtonLocator = "//div[./p[text()='Контактная информация']]/descendant::button[text()='Добавить']";
+    private String savePageChangesButtonSelector = "button[title='Сохранить и заполнить позже']";
     public PersonalAccountProfilePage(WebDriver driver) {
         super(driver, "/lk/biography/personal/");
     }
-
+    @Override
+    public PersonalAccountProfilePage open() {
+        driver.manage().window().maximize();
+        driver.get(BASE_URL + path);
+        return this;
+    }
     public PersonalAccountProfilePage fillNameWithLatinName(String firstName, String latinName) {
         $(nameInputSelector).clear();
         $(nameInputSelector).sendKeys(firstName);

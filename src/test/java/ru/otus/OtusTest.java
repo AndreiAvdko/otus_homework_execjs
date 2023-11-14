@@ -5,17 +5,12 @@ import factory.WebDriverFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import ru.otus.pages.MainPage;
-import ru.otus.pages.PersonalAccountProfilePage;
 import utils.fakeData.DataFaker;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 import static data.WorkFormat.*;
 
@@ -31,13 +26,11 @@ public class OtusTest {
     private final String COMPANY = DataFaker.getRandomCompanyName();
     private final String POSITION = DataFaker.getRandomCompanyName();
 
-    private final
-
-    Map<SocialNetworkType, String> userContacts = new HashMap() {
-        {
+    private final Map<SocialNetworkType, String> userContacts = new HashMap() {
+    {
             put(SocialNetworkType.OK, "contact1");
             put(SocialNetworkType.VK, "contact2");
-        }
+    }
     };
     public OtusTest() {
     }
@@ -47,9 +40,15 @@ public class OtusTest {
         driver = new WebDriverFactory().newDriver();
     }
     @Test
-    public void checkOwnDataInOtusAccount() throws InterruptedException {
-        new MainPage(driver).open()
-                .logInToTheSite()
+    public void checkOwnDataInOtusAccount() {
+        MainPage mainPage = new MainPage(driver);
+        if (System.getProperty("authWithCockie", "y").equals("y")) {
+            mainPage.openWithAuthorizedUserWithCoockies();
+        } else {
+            mainPage.open()
+                    .logInToTheSite();
+        }
+        mainPage
                 .goToPersonalAccount()
                 .fillNameWithLatinName(FIRST_NAME, LATIN_FNAME)
                 .fillSurnameWithLatinName(SURNAME, LATIN_SNAME)
@@ -66,10 +65,15 @@ public class OtusTest {
                 .saveAndReturnAfterTime()
                 .close();
         driver = new WebDriverFactory().newDriver();
-        new MainPage(driver)
+        mainPage = new MainPage(driver);
+        if (System.getProperty("authWithCockie", "y").equals("y")) {
+            mainPage.openWithAuthorizedUserWithCoockies();
+        } else {
+            mainPage.open()
+                    .logInToTheSite();
+        }
+        mainPage.openPersonalAccountWithAuthorizedUserWithCoockies()
                 .open()
-                .logInToTheSite()
-                .goToPersonalAccount()
                 .checkCorrectFillingNameAndLatinName(FIRST_NAME, LATIN_FNAME)
                 .checkCorrectFillingSurnameAndLatinSurname(SURNAME, LATIN_SNAME)
                 .checkCorrectFillingBlogName(BLOG_NAME)
