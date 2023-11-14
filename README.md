@@ -21,7 +21,7 @@
     -D oid='__value__'
     -D sessionid='__value__'
     -D utm='__value__'
-    -D authWithCockie=n
+    -D authWithCockie=y
 ```
 
 ### Запуск с авторизацией через логин и пароль
