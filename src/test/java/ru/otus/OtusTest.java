@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import ru.otus.pages.MainPage;
+import ru.otus.pages.PersonalAccountProfilePage;
 import utils.fakeData.DataFaker;
 
 import java.util.HashMap;
@@ -68,13 +69,13 @@ public class OtusTest {
         mainPage = new MainPage(driver);
         if (System.getProperty("authWithCockie", "n").equals("n")) {
             mainPage.open()
-                    .logInToTheSite();
+                    .logInToTheSite()
+                    .goToPersonalAccount();
         } else {
-            mainPage.openWithAuthorizedUserWithCoockies();
+            mainPage.openWithAuthorizedUserWithCoockies()
+                    .openPersonalAccountWithAuthorizedUserWithCoockies();
         }
-        mainPage.openPersonalAccountWithAuthorizedUserWithCoockies()
-                .open()
-                .checkCorrectFillingNameAndLatinName(FIRST_NAME, LATIN_FNAME)
+        new PersonalAccountProfilePage(driver).checkCorrectFillingNameAndLatinName(FIRST_NAME, LATIN_FNAME)
                 .checkCorrectFillingSurnameAndLatinSurname(SURNAME, LATIN_SNAME)
                 .checkCorrectFillingBlogName(BLOG_NAME)
                 .checkCorrectFillingBirthDay(BIRTHDATE)

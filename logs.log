@@ -16,3 +16,49 @@ java.net.SocketException: Connection reset
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.96.Final.jar:4.1.96.Final]
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.96.Final.jar:4.1.96.Final]
 	at java.lang.Thread.run(Thread.java:1589) [?:?]
+2023-11-19 20:45:44,574 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 20:45:44,629 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 20:46:01,111 WARN o.a.n.h.WebSocketHandler [AsyncHttpClient-1-4] onError
+java.net.SocketException: Connection reset
+	at sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:401) ~[?:?]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:434) ~[?:?]
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254) ~[netty-buffer-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132) ~[netty-buffer-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357) ~[netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151) [netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788) [netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) [netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) [netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) [netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) [netty-common-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.96.Final.jar:4.1.96.Final]
+	at java.lang.Thread.run(Thread.java:1589) [?:?]
+2023-11-19 20:50:53,372 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 20:50:53,424 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 20:58:00,325 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 20:58:00,404 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 20:59:03,016 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 20:59:03,050 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:06:05,722 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:06:05,763 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:06:48,056 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:06:48,102 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:07:31,091 WARN o.a.n.h.WebSocketHandler [AsyncHttpClient-1-4] onError
+java.net.SocketException: Connection reset
+	at sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:401) ~[?:?]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:434) ~[?:?]
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254) ~[netty-buffer-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132) ~[netty-buffer-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357) ~[netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151) [netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788) [netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) [netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) [netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) [netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) [netty-common-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.96.Final.jar:4.1.96.Final]
+	at java.lang.Thread.run(Thread.java:1589) [?:?]
+2023-11-19 21:07:31,221 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:07:31,274 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
