@@ -55,6 +55,7 @@ public class MainPage extends AbsBasePage {
     }
 
     public MainPage logInToTheSite() {
+        waiters.waitForCondition(ExpectedConditions.presenceOfElementLocated(By.xpath(inputButtonLocator)));
         WebElement inputButton = $x(inputButtonLocator);
         waiters.waitForCondition(ExpectedConditions.elementToBeClickable(inputButton));
         inputButton.click();

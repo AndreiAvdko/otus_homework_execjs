@@ -62,3 +62,51 @@ java.net.SocketException: Connection reset
 	at java.lang.Thread.run(Thread.java:1589) [?:?]
 2023-11-19 21:07:31,221 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
 2023-11-19 21:07:31,274 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:18:10,624 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:18:10,716 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:18:29,973 WARN o.a.n.h.WebSocketHandler [AsyncHttpClient-1-4] onError
+java.net.SocketException: Connection reset
+	at sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:401) ~[?:?]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:434) ~[?:?]
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254) ~[netty-buffer-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132) ~[netty-buffer-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357) ~[netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151) [netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788) [netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) [netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) [netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) [netty-transport-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) [netty-common-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.96.Final.jar:4.1.96.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.96.Final.jar:4.1.96.Final]
+	at java.lang.Thread.run(Thread.java:1589) [?:?]
+2023-11-19 21:19:14,241 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:19:14,290 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:19:47,582 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:19:47,627 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:22:04,178 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:22:04,245 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:23:37,265 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:23:37,313 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:25:50,985 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:25:51,048 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:26:33,394 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:26:33,482 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:28:45,229 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:28:45,298 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:33:02,808 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:33:02,867 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:35:07,466 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:35:07,516 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:37:28,554 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:37:28,607 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:38:52,215 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:38:52,253 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:42:49,908 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:42:49,959 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:45:04,740 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:45:04,798 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:49:46,121 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:49:46,203 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
+2023-11-19 21:53:44,695 INFO i.g.b.w.WebDriverManager [Test worker] Using chromedriver 119.0.6045.105 (resolved driver for Chrome 119)
+2023-11-19 21:53:44,807 INFO i.g.b.w.WebDriverManager [Test worker] Exporting webdriver.chrome.driver as C:\Users\andre\.cache\selenium\chromedriver\win64\119.0.6045.105\chromedriver.exe
