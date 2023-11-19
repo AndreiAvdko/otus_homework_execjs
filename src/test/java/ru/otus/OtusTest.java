@@ -69,13 +69,12 @@ public class OtusTest {
         mainPage = new MainPage(driver);
         if (System.getProperty("authWithCockie", "n").equals("n")) {
             mainPage.open()
-                    .logInToTheSite()
-                    .goToPersonalAccount();
+                    .logInToTheSite();
         } else {
-            mainPage.openWithAuthorizedUserWithCoockies()
-                    .openPersonalAccountWithAuthorizedUserWithCoockies();
+            mainPage.openWithAuthorizedUserWithCoockies();
         }
-        new PersonalAccountProfilePage(driver).checkCorrectFillingNameAndLatinName(FIRST_NAME, LATIN_FNAME)
+        mainPage.goToPersonalAccount()
+                .checkCorrectFillingNameAndLatinName(FIRST_NAME, LATIN_FNAME)
                 .checkCorrectFillingSurnameAndLatinSurname(SURNAME, LATIN_SNAME)
                 .checkCorrectFillingBlogName(BLOG_NAME)
                 .checkCorrectFillingBirthDay(BIRTHDATE)
