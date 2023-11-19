@@ -73,7 +73,8 @@ public class OtusTest {
         } else {
             mainPage.openWithAuthorizedUserWithCoockies();
         }
-        mainPage.goToPersonalAccount()
+        mainPage.
+                goToPersonalAccount()
                 .checkCorrectFillingNameAndLatinName(FIRST_NAME, LATIN_FNAME)
                 .checkCorrectFillingSurnameAndLatinSurname(SURNAME, LATIN_SNAME)
                 .checkCorrectFillingBlogName(BLOG_NAME)
